@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import useIsMobile from "../hooks/useIsMobile";
 import { useAuthActions } from "../hooks/useAuthActions";
 
-import { Home, Search, Library, LogOut, Trash2 } from "lucide-react";
+import { Home, Search, Library, Calendar, LogOut, Trash2 } from "lucide-react";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -16,7 +16,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const { t, i18n } = useTranslation();
   const isMobile = useIsMobile();
   const ref = useRef<HTMLDivElement>(null);
-
 
   const availableLanguages = ["en", "ru", "az"];
   const toggleLanguage = () => {
@@ -43,8 +42,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isMobile, isOpen, onClose]);
-  
+
   const { handleLogout, handleDeleteAccount } = useAuthActions();
+
   return (
     <div
       ref={ref}
@@ -59,6 +59,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         }
       `}
     >
+
       <div className="flex justify-end pr-4 mb-2">
         <button
           onClick={toggleLanguage}
@@ -86,11 +87,20 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       </div>
 
       <div className="h-[70%] rounded overflow-y-auto mt-2">
-        <div 
-        onClick={() => navigate("/tasks")}
-        className="p-4 flex items-center gap-3">
+        <div
+          onClick={() => navigate("/tasks")}
+          className="p-4 flex items-center gap-3 cursor-pointer hover:text-gray-300"
+        >
           <Library size={18} />
           <p>{t("sidebar.task")}</p>
+        </div>
+
+        <div
+          onClick={() => navigate("/schedule")}
+          className="p-4 flex items-center gap-3 cursor-pointer hover:text-gray-300"
+        >
+          <Calendar size={18} />
+          <p>{t("sidebar.schedule")}</p>
         </div>
       </div>
 
@@ -104,7 +114,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </button>
 
           <button
-            onClick={handleDeleteAccount}className="flex items-center gap-3 px-6 py-2"
+            onClick={handleDeleteAccount}
+            className="flex items-center gap-3 px-6 py-2"
           >
             <Trash2 size={18} /> <span>{t("sidebar.deleteAccount")}</span>
           </button>

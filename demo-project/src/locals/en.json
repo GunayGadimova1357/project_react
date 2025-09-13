@@ -3,6 +3,7 @@
     "home": "Home",
     "search": "Search",
     "task": "Your Tasks",
+    "schedule": "Schedule",
     "logout": "Log Out",
     "deleteAccount": "Delete Account"
   },
