@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import Tasks from "./pages/Tasks";
 import useIsMobile from "./hooks/useIsMobile";
+import Schedule from "./pages/Schedule";
 
 const App = () => {
   const location = useLocation();
@@ -48,6 +49,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/search" element={<Search />} />
         <Route path="/tasks" element={<Tasks />} />
+        <Route path="/schedule" element = {<Schedule/>}/>
       </Routes>
 
       {!shouldHideGlobalUI && isMobile && <BottomNavigation />}
