@@ -13,9 +13,17 @@ export default function Search() {
 
   return (
     <div className={`p-6 space-y-4 ${isMobile ? "pb-20" : ""}`}>
-      <h1 className="text-2xl font-semibold text-gray-100">
+      <h1 className="text-2xl font-semibold text-gray-100 mb-4">
         {t("search.title")}
       </h1>
+
+      <div className="w-full">
+        <input
+          type="text"
+          placeholder={t("search.placeholder")}
+          className="w-full rounded-full bg-[#2a2a2a] text-gray-100 px-4 py-2"
+        />
+      </div>
 
       {mockSearches.length === 0 ? (
         <p className="text-gray-400">{t("search.empty")}</p>

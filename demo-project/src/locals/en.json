@@ -62,7 +62,8 @@
   },
   "search": {
     "title": "Search History",
-    "empty": "No searches yet"
+    "empty": "No searches yet",
+    "placeholder": "Search for something..."
   },
   "chart": {
     "title": "Streak"

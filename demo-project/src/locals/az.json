@@ -61,7 +61,8 @@
   },
   "search": {
     "title": "Axtarış Tarixi",
-    "empty": "Hələ axtarış yoxdur"
+    "empty": "Hələ axtarış yoxdur",
+    "placeholder": "Sorğunu daxil edin..."
   },
    "chart": {
     "title": "Streak"
